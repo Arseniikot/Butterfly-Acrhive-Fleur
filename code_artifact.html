@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отряд Дыхания Насекомого — Butterfly Estate Archive</title>
+
+    <!-- Подключение элегантных шрифтов Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Подключение Tailwind CSS CDN для адаптивной верстки -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Основные цвета палитры из ТЗ (без использования неона)
+                        primary: '#7862aa',      // Основной фиолетовый
+                        accentPink: '#c88391',   // Нежно-розовый акцент
+                        lightCream: '#e2dbd4',   // Светло-кремовый текст
+                        darkPurple: '#67529c',   // Глубокий фиолетовый
+                        nightBg: '#131224',      // Темный ночной фон
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ==========================================
+           1. Базовые стили и кастомные переходы
+           ========================================== */
+        body {
+            background-color: #131224;
+            color: #e2dbd4;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Кастомный элегантный скроллбар */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131224;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #67529c;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7862aa;
+        }
+
+        /* Эффект матового стекла (Glassmorphism) */
+        .glass-card {
+            background: rgba(120, 98, 170, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(200, 131, 145, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(19, 18, 36, 0.5);
+        }
+
+        /* Интерактивная рамка при наведении */
+        .glass-card:hover {
+            border-color: rgba(200, 131, 145, 0.4);
+        }
+
+        /* Canvas для фона с падающими анимациями */
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Градиентные разделители без неона */
+        .divider-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #7862aa, #c88391, #7862aa, transparent);
+        }
+    </style>
+</head>
+<body class="bg-nightBg text-lightCream min-h-screen flex flex-col justify-between selection:bg-primary selection:text-lightCream antialiased">
+
+    <!-- Фоновый Canvas для плавной эстетичной анимации лепестков глицинии и бабочек -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- 2. Фиксированная шапка (Fixed Header) сверху -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#131224]/85 backdrop-blur-md border-b border-[#7862aa]/30 px-6 py-4 transition-all duration-300">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <!-- Текст шапки из ТЗ -->
+            <div class="text-xs md:text-sm tracking-[0.25em] uppercase font-medium text-lightCream/90 flex items-center gap-3">
+                <span class="w-2 h-2 rounded-full bg-accentPink inline-block"></span>
+                Отряд Дыхания Насекомого
+            </div>
+            <!-- Декоративный символ в стиле архива -->
+            <div class="text-xs tracking-widest text-accentPink/70 uppercase font-serif italic">
+                W.E. Archive
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="relative z-10 flex-grow flex flex-col">
+
+        <!-- 3. Первый главный блок (Hero section) -->
+        <section class="min-h-screen w-full flex flex-col items-center justify-center text-center px-6 pt-24 pb-12 relative">
+            <div class="max-w-4xl mx-auto space-y-8">
+                
+                <!-- Декоративный паттерн сверху -->
+                <div class="flex items-center justify-center gap-4 opacity-70">
+                    <div class="w-12 h-[1px] bg-accentPink"></div>
+                    <span class="text-accentPink text-xs tracking-[0.3em] uppercase font-semibold">Butterfly Estate</span>
+                    <div class="w-12 h-[1px] bg-accentPink"></div>
+                </div>
+
+                <!-- Крупный заголовок -->
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-normal tracking-wide leading-tight text-lightCream drop-shadow-md">
+                    Отряд Дыхания Насекомого
+                </h1>
+
+                <!-- Декоративная линия-разделитель -->
+                <div class="divider-line w-32 sm:w-48 mx-auto my-6"></div>
+
+                <!-- Подзаголовок -->
+                <p class="text-lg sm:text-2xl md:text-3xl font-serif italic text-accentPink font-light tracking-wider">
+                    Под руководством Шинобу Кочо
+                </p>
+
+            </div>
+
+            <!-- Иконка указателя прокрутки вниз -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
+                <span class="text-[10px] tracking-[0.2em] uppercase text-lightCream/70">Scroll</span>
+                <svg class="w-4 h-4 text-accentPink animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- 4. Второй блок (Описание) -->
+        <section class="min-h-screen w-full flex items-center justify-center px-6 py-24 relative">
+            <div class="max-w-3xl mx-auto w-full">
+                <!-- Полупрозрачная стильная карточка текста -->
+                <div class="glass-card rounded-2xl p-8 sm:p-12 md:p-16 transition-all duration-500 relative overflow-hidden group">
+                    
+                    <!-- Нежный угловой акцент -->
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-accentPink/10 to-transparent pointer-events-none"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none"></div>
+
+                    <p class="text-base sm:text-lg md:text-xl leading-relaxed sm:leading-loose font-light text-lightCream/95 text-justify sm:text-left tracking-wide">
+                        Дыхание Насекомого — уникальный стиль боя, созданный для компенсации недостатка физической силы. Основой техники являются скорость, точность движений и использование специальных ядов на основе глицинии. Члены отряда совершенствуют владение клинком, изучают свойства ядов и противоядий, а также следуют принципам дисциплины и милосердия.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 5. Подвал (Footer / Нижняя карточка) -->
+    <footer class="relative z-20 w-full bg-[#131224]/90 backdrop-blur-md border-t border-[#7862aa]/20 py-8 px-6 mt-auto">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-lightCream/70 font-light tracking-widest">
+            <div class="flex items-center gap-2">
+                <span class="text-accentPink font-serif font-bold">W</span>
+                <span>Butterfly Estate Archive</span>
+            </div>
+            <div class="text-lightCream/50 text-[11px] sm:text-xs">
+                Отряд Дыхания Насекомого
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ==========================================
+           Анимационный скрипт фона (Глициния и бабочки)
+           Без неона, с соблюдением цветовой гаммы
+           ========================================== */
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        // Пересчет размеров при изменении окна
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Цвета элементов из палитры
+        const colors = ['#7862aa', '#c88391', '#67529c'];
+
+        // Массив частиц (падающие лепестки)
+        const particles = [];
+        const numParticles = 35;
+
+        class Petal {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * -height;
+                this.size = Math.random() * 4 + 2;
+                this.speedY = Math.random() * 0.8 + 0.3;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.opacity = Math.random() * 0.5 + 0.2;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += Math.sin(this.y * 0.01) * 0.5 + this.speedX;
+                this.rotation += this.rotationSpeed;
+
+                if (this.y > height + 20) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.opacity;
+                
+                // Рисуем форму овального лепестка
+                ctx.beginPath();
+                ctx.ellipse(0, 0, this.size, this.size * 1.8, 0, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.restore();
+            }
+        }
+
+        // Инициализация частиц
+        for (let i = 0; i < numParticles; i++) {
+            particles.push(new Petal());
+        }
+
+        // Анимационный цикл
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            particles.forEach(petal => {
+                petal.update();
+                petal.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // Запуск анимации
+        window.onload = function() {
+            animate();
+            console.log('Butterfly Estate Archive initialised successfully.');
+        };
+    </script>
+</body>
+</html>
