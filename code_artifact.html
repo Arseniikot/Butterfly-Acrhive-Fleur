@@ -17,8 +17,8 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    // Точная цветовая палитра из ТЗ (без неона)
                     colors: {
-                        // Точная цветовая палитра из ТЗ
                         primary: '#7862aa',      // Основной фиолетовый
                         accentPink: '#c88391',   // Нежно-розовый акцент
                         lightCream: '#e2dbd4',   // Светло-кремовый текст
@@ -35,7 +35,7 @@
     </script>
 
     <style>
-        /* Базовый фон и скроллбар */
+        /* Базовый фон и настройка отображения */
         body {
             background-color: #131224;
             color: #e2dbd4;
@@ -68,10 +68,6 @@
             box-shadow: 0 8px 32px 0 rgba(19, 18, 36, 0.5);
         }
 
-        .glass-card:hover {
-            border-color: rgba(200, 131, 145, 0.35);
-        }
-
         /* Фоновый Canvas */
         #bgCanvas {
             position: fixed;
@@ -92,24 +88,28 @@
 </head>
 <body class="bg-nightBg text-lightCream min-h-screen flex flex-col justify-between selection:bg-primary selection:text-lightCream antialiased">
 
-    <!-- Фоновый Canvas для эффекта падающих лепестков -->
+    <!-- Фоновый Canvas для плавных и детализированных падающих лепестков -->
     <canvas id="bgCanvas"></canvas>
 
-    <header class="fixed top-0 left-0 w-full z-50 bg-[#131224]/85 backdrop-blur-md border-b border-[#7862aa]/30 px-6 py-3">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <!-- Закрепленный заголовок из первого блока макета -->
-            <div class="text-xs sm:text-sm tracking-[0.25em] uppercase font-medium text-lightCream/90 flex items-center gap-2.5">
-                <span class="w-2 h-2 rounded-full bg-accentPink inline-block"></span>
+    <!-- Фиксированная шапка сверху -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#131224]/85 backdrop-blur-md border-b border-[#7862aa]/30 px-6 py-2.5">
+        <div class="max-w-5xl mx-auto flex items-center justify-start gap-3">
+            <!-- Изображение бабочки рядом с текстом (убедитесь, что файл butterfly.jpg лежит рядом с index.html) -->
+            <img src="butterfly.png" alt="Бабочка" class="h-7 w-auto object-contain mix-blend-screen opacity-90">
+            
+            <!-- Закрепленный заголовок из ТЗ -->
+            <div class="text-xs sm:text-sm tracking-[0.2em] uppercase font-medium text-lightCream/90">
                 Отряд Дыхания Насекомого
             </div>
         </div>
     </header>
 
+    <!-- Основной контент страницы -->
     <main class="relative z-10 flex-grow flex flex-col items-center justify-center">
 
-        <!-- Первый блок (Заголовок и руководство) - компактная секция -->
-        <section class="w-full flex flex-col items-center justify-center text-center px-6 pt-28 pb-12">
-            <div class="max-w-3xl mx-auto space-y-5">
+        <!-- Первый блок (Заголовок и руководство) -->
+        <section class="w-full flex flex-col items-center justify-center text-center px-6 pt-24 pb-8">
+            <div class="max-w-3xl mx-auto space-y-4">
                 
                 <!-- Декоративный элемент -->
                 <div class="flex items-center justify-center gap-3 opacity-70">
@@ -124,7 +124,7 @@
                 </h1>
 
                 <!-- Разделитель -->
-                <div class="divider-line w-28 sm:w-40 mx-auto my-3"></div>
+                <div class="divider-line w-28 sm:w-40 mx-auto my-2"></div>
 
                 <!-- Подзаголовок -->
                 <p class="text-base sm:text-xl md:text-2xl font-serif italic text-accentPink font-light tracking-wider">
@@ -135,13 +135,13 @@
         </section>
 
         <!-- Второй блок (Полупрозрачный текстовый блок с описанием) -->
-        <section class="w-full flex items-center justify-center px-6 py-8">
+        <section class="w-full flex items-center justify-center px-6 py-6">
             <div class="max-w-2xl mx-auto w-full">
-                <div class="glass-card rounded-xl p-6 sm:p-10 relative overflow-hidden">
+                <div class="glass-card rounded-xl p-6 sm:p-8 relative overflow-hidden">
                     
-                    <!-- Нежные угловые акценты -->
-                    <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-accentPink/10 to-transparent pointer-events-none"></div>
-                    <div class="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none"></div>
+                    <!-- Мягкие прозрачные угловые градиенты -->
+                    <div class="absolute top-0 right-0 w-24 h-24 pointer-events-none" style="background: radial-gradient(circle at top right, rgba(200, 131, 145, 0.15), transparent 70%);"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 pointer-events-none" style="background: radial-gradient(circle at bottom left, rgba(120, 98, 170, 0.15), transparent 70%);"></div>
 
                     <!-- Текст описания из ТЗ -->
                     <p class="text-sm sm:text-base md:text-lg leading-relaxed sm:leading-loose font-light text-lightCream/95 text-justify sm:text-left tracking-wide">
@@ -154,32 +154,30 @@
 
     </main>
 
-    <footer class="relative z-10 w-full py-6 px-6 text-center border-t border-[#7862aa]/20 bg-[#131224]/90 backdrop-blur-md mt-auto">
+    <!-- Подвал (Footer) — центрированный текст -->
+    <footer class="relative z-10 w-full py-5 px-6 text-center border-t border-[#7862aa]/20 bg-[#131224]/90 backdrop-blur-md mt-auto">
         <div class="text-[#e2dbd4] font-serif text-xl md:text-2xl tracking-widest font-medium">
             Butterfly Estate Archive
         </div>
     </footer>
 
+    <!-- Скрипт фоновой анимации: медленные, проработанные падающие лепестки -->
     <script>
-        // Инициализация Canvas контекста
         const canvas = document.getElementById('bgCanvas');
         const ctx = canvas.getContext('2d');
 
         let width = canvas.width = window.innerWidth;
         let height = canvas.height = window.innerHeight;
 
-        // Автоматический пересчет при изменении экрана
         window.addEventListener('resize', () => {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
         });
 
-        // Цветовая гамма лепестков без неона
-        const colors = ['#7862aa', '#c88391', '#67529c'];
-
-        // Лепестки
-        const particles = [];
-        const numParticles = 28;
+        // Цвета лепестков из вашей палитры
+        const colors = ['#7862aa', '#c88391', '#67529c', '#e2dbd4'];
+        const petals = [];
+        const numPetals = 25;
 
         class Petal {
             constructor() {
@@ -188,23 +186,27 @@
 
             reset() {
                 this.x = Math.random() * width;
-                this.y = Math.random() * -height;
-                this.size = Math.random() * 3.5 + 2;
-                this.speedY = Math.random() * 0.7 + 0.3;
-                this.speedX = Math.random() * 0.4 - 0.2;
-                this.color = colors[Math.floor(Math.random() * colors.length)];
-                this.opacity = Math.random() * 0.45 + 0.25;
+                this.y = Math.random() * -height - 20;
+                this.sizeX = Math.random() * 6 + 4;
+                this.sizeY = Math.random() * 3 + 2;
+                this.speedY = Math.random() * 0.3 + 0.15; // Очень плавное, медленное падение
+                this.speedX = Math.random() * 0.3 - 0.15;
                 this.rotation = Math.random() * Math.PI * 2;
-                this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+                this.rotSpeed = (Math.random() - 0.5) * 0.015;
+                this.opacity = Math.random() * 0.45 + 0.2;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.phase = Math.random() * Math.PI * 2;
             }
 
             update() {
                 this.y += this.speedY;
-                this.x += Math.sin(this.y * 0.01) * 0.4 + this.speedX;
-                this.rotation += this.rotationSpeed;
+                // Плавное покачивание из стороны в сторону при падении
+                this.x += this.speedX + Math.sin(this.y * 0.01 + this.phase) * 0.4;
+                this.rotation += this.rotSpeed;
 
                 if (this.y > height + 20) {
                     this.reset();
+                    this.y = -20;
                 }
             }
 
@@ -212,28 +214,36 @@
                 ctx.save();
                 ctx.translate(this.x, this.y);
                 ctx.rotate(this.rotation);
+                
+                // Основной лепесток
                 ctx.fillStyle = this.color;
                 ctx.globalAlpha = this.opacity;
-                
                 ctx.beginPath();
-                ctx.ellipse(0, 0, this.size, this.size * 1.7, 0, 0, Math.PI * 2);
+                ctx.ellipse(0, 0, this.sizeX, this.sizeY, 0, 0, Math.PI * 2);
                 ctx.fill();
-                
+
+                // Детализированный внутренний блик для объема
+                ctx.fillStyle = '#e2dbd4';
+                ctx.globalAlpha = this.opacity * 0.35;
+                ctx.beginPath();
+                ctx.ellipse(-this.sizeX * 0.2, 0, this.sizeX * 0.3, this.sizeY * 0.3, 0, 0, Math.PI * 2);
+                ctx.fill();
+
                 ctx.restore();
             }
         }
 
-        // Создание лепестков
-        for (let i = 0; i < numParticles; i++) {
-            particles.push(new Petal());
+        // Инициализация лепестков
+        for (let i = 0; i < numPetals; i++) {
+            petals.push(new Petal());
         }
 
-        // Цикл отрисовки
+        // Цикл анимации
         function animate() {
             ctx.clearRect(0, 0, width, height);
-            particles.forEach(petal => {
-                petal.update();
-                petal.draw();
+            petals.forEach(p => {
+                p.update();
+                p.draw();
             });
             requestAnimationFrame(animate);
         }
