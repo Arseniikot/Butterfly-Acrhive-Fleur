@@ -57,13 +57,25 @@
             background: #7862aa;
         }
 
-        /* Эффект матового стекла для текстового блока */
+        /* Эффект матового стекла для текстовых блоков */
         .glass-card {
             background: rgba(120, 98, 170, 0.08);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(200, 131, 145, 0.2);
             box-shadow: 0 8px 32px 0 rgba(19, 18, 36, 0.5);
+        }
+
+        /* Классы для двусторонней анимации появления/исчезновения при прокрутке */
+        .reveal-block {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-block.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Фоновый Canvas */
@@ -94,7 +106,7 @@
         <div class="max-w-6xl mx-auto flex items-center justify-between">
             <!-- Левая часть: иконка и название -->
             <div class="flex items-center gap-3">
-                <img src="butterfly.jpg" alt="Бабочка" class="h-7 w-auto object-contain mix-blend-screen opacity-90">
+                <img src="butterfly.png" alt="Бабочка" class="h-7 w-auto object-contain mix-blend-screen opacity-90">
                 <div class="text-xs sm:text-sm tracking-[0.2em] uppercase font-medium text-lightCream/90">
                     Отряд Дыхания Насекомого
                 </div>
@@ -103,7 +115,7 @@
             <!-- Правая часть: 4 навигационные кнопки -->
             <nav class="flex items-center gap-1 sm:gap-2">
                 <a href="index.html" class="px-2.5 sm:px-3.5 py-1.5 rounded-lg text-[11px] sm:text-xs tracking-wider uppercase text-lightCream bg-[#7862aa]/30 border border-[#7862aa]/50 transition-all shadow-sm">Главная</a>
-                <a href="#rules" class="px-2.5 sm:px-3.5 py-1.5 rounded-lg text-[11px] sm:text-xs tracking-wider uppercase text-lightCream/75 hover:text-lightCream hover:bg-[#7862aa]/20 transition-all">Устав</a>
+                <a href="#content-section" class="px-2.5 sm:px-3.5 py-1.5 rounded-lg text-[11px] sm:text-xs tracking-wider uppercase text-lightCream/75 hover:text-lightCream hover:bg-[#7862aa]/20 transition-all">Устав</a>
                 <a href="#hierarchy" class="px-2.5 sm:px-3.5 py-1.5 rounded-lg text-[11px] sm:text-xs tracking-wider uppercase text-lightCream/75 hover:text-lightCream hover:bg-[#7862aa]/20 transition-all">Иерархия</a>
                 <a href="#promotion" class="px-2.5 sm:px-3.5 py-1.5 rounded-lg text-[11px] sm:text-xs tracking-wider uppercase text-lightCream/75 hover:text-lightCream hover:bg-[#7862aa]/20 transition-all">Повышение</a>
             </nav>
@@ -113,8 +125,8 @@
     <!-- Основной контент страницы -->
     <main class="relative z-10 flex-grow flex flex-col items-center">
 
-        <!-- 1. Главный экран (Hero) — строго по центру экрана -->
-        <section class="w-full min-h-screen flex flex-col items-center justify-center text-center px-6">
+        <!-- 1. Главный экран (Hero) -->
+        <section class="w-full min-h-screen flex flex-col items-center justify-center text-center px-6 pb-12">
             <div class="max-w-3xl mx-auto space-y-5">
                 
                 <!-- Декоративный элемент -->
@@ -140,22 +152,32 @@
             </div>
         </section>
 
-        <!-- 2. Блок с описанием (требует прокрутки вниз) -->
-        <section id="rules" class="w-full min-h-screen flex items-center justify-center px-6 py-24">
-            <div class="max-w-2xl mx-auto w-full">
+        <!-- 2. Секция с контентом -->
+        <section id="content-section" class="w-full flex flex-col items-center justify-start px-6 pt-0 pb-32 space-y-12">
+            
+            <!-- Широкий блок текста -->
+            <div class="max-w-4xl mx-auto w-full reveal-block">
                 <div class="glass-card rounded-xl p-8 sm:p-10 relative overflow-hidden">
-                    
-                    <!-- Мягкие прозрачные угловые градиенты -->
                     <div class="absolute top-0 right-0 w-24 h-24 pointer-events-none" style="background: radial-gradient(circle at top right, rgba(200, 131, 145, 0.15), transparent 70%);"></div>
                     <div class="absolute bottom-0 left-0 w-24 h-24 pointer-events-none" style="background: radial-gradient(circle at bottom left, rgba(120, 98, 170, 0.15), transparent 70%);"></div>
 
-                    <!-- Текст описания из ТЗ -->
                     <p class="text-sm sm:text-base md:text-lg leading-relaxed sm:leading-loose font-light text-lightCream/95 text-justify sm:text-left tracking-wide">
-                        Дыхание Насекомого — уникальный стиль боя, созданный для компенсации недостатка физической силы. Основой техники являются скорость, точность движений и использование специальных ядов на основе глицинии. Члены отряда совершенствуют владение клинком, изучают свойства ядов и противоядий, а также следуют принципам дисциплины и милосердия.
+                        Дыхание Насекомого — дыхание четвёртого поколения, произошедшее от Цветка. В его основе лежат скорость, рывки и точечные удары, вводящие яд глицинии. Все члены отряда обязуются следовать уставу истребителей демонов, а так же совершенствовать свои познания в области медицины и фармацевтики. Они служат примером товарищам по оружию.
                     </p>
-
                 </div>
             </div>
+
+            <!-- Блок поуже (цитата) -->
+            <div class="max-w-2xl mx-auto w-full reveal-block">
+                <div class="glass-card rounded-xl p-8 sm:p-10 relative overflow-hidden text-center">
+                    <div class="absolute top-0 right-0 w-20 h-20 pointer-events-none" style="background: radial-gradient(circle at top right, rgba(120, 98, 170, 0.15), transparent 70%);"></div>
+                    
+                    <p class="text-base sm:text-lg md:text-xl font-serif italic leading-relaxed sm:leading-loose text-accentPink font-light">
+                        «Пусть мы и слабые... пусть мы и не можем отрезать демону голову. Если одолеем одного демона, спасём десятки людей. А если высшую луну — сотни. Не важно, могу я или нет. Я должна это сделать!»
+                    </p>
+                </div>
+            </div>
+
         </section>
 
     </main>
@@ -167,8 +189,30 @@
         </div>
     </footer>
 
-    <!-- Скрипт фоновой анимации: плавные падающие лепестки -->
+    <!-- Скрипт для двусторонней анимации блоков и фоновых лепестков -->
     <script>
+        // Двухсторонняя анимация появления и исчезновения при скролле
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active'); // Убирает класс при скролле обратно, заставляя блок плавно скрываться
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-block').forEach(block => {
+            observer.observe(block);
+        });
+
+        // Фоновый анимационный Canvas (падающие лепестки)
         const canvas = document.getElementById('bgCanvas');
         const ctx = canvas.getContext('2d');
 
