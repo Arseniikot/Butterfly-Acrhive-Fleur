@@ -66,7 +66,7 @@
             box-shadow: 0 8px 32px 0 rgba(19, 18, 36, 0.5);
         }
 
-        /* Особый темный и прозрачный блок для главы отряда */
+        /* Особый темный прозрачный блок для главы отряда */
         .leader-card {
             background: rgba(19, 18, 36, 0.65);
             backdrop-filter: blur(14px);
@@ -141,7 +141,7 @@
             </p>
         </div>
 
-        <!-- 1. Блок главы отряда (темный, прозрачный с рамкой) -->
+        <!-- 1. Блок Шинобу Кочо -->
         <div class="leader-card rounded-xl p-8 sm:p-10 text-center relative overflow-hidden space-y-4">
             <div class="absolute top-0 right-0 w-28 h-28 pointer-events-none" style="background: radial-gradient(circle at top right, rgba(200, 131, 145, 0.15), transparent 70%);"></div>
             
@@ -152,29 +152,29 @@
                 Глава Отряда Дыхания Насекомого
             </div>
             <p class="text-sm sm:text-base text-lightCream/90 font-light leading-relaxed max-w-2xl mx-auto pt-2">
-                Высшая власть внутри подразделения. Контролирует развитие отряда, принимает окончательные решения и отвечает за направление его деятельности.
+                Столп дыхания Насекомого. Хозяйка поместья Бабочки. Отвечает за руководство и развитие, выбирает направление отряда. Имеет решающее слово во всех вопросах.
             </p>
         </div>
 
-        <!-- 2. Широкий блок Цугуко -->
+        <!-- 2. Блок Цугуко -->
         <div class="glass-card rounded-xl p-8 sm:p-10 relative overflow-hidden space-y-8">
             <div class="absolute top-0 left-0 w-28 h-28 pointer-events-none" style="background: radial-gradient(circle at top left, rgba(120, 98, 170, 0.15), transparent 70%);"></div>
 
             <div class="text-center space-y-3">
                 <h2 class="text-2xl sm:text-3xl font-serif text-lightCream font-medium">Цугуко</h2>
                 <p class="text-sm sm:text-base text-accentPink font-light max-w-xl mx-auto leading-relaxed">
-                    Особый статус ученика и помощника руководства. Не является частью стандартной системы рангов.
+                    Особый статус, который заслуживают выдающиеся ученики, которых заметил глава отряда. Находится вне ранговой системы.
                 </p>
             </div>
 
-            <!-- Мини-блоки внутри широкого блока -->
+            <!-- Подблоки Цугуко -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                 
                 <!-- Канао Цуюри -->
                 <div class="glass-card rounded-xl p-6 border border-[#7862aa]/30 bg-[#7862aa]/5 space-y-2">
                     <h3 class="font-serif text-lg sm:text-xl text-accentPink font-medium">Канао Цуюри</h3>
                     <p class="text-xs sm:text-sm text-lightCream/85 font-light leading-relaxed">
-                        Личная ученица Шинобу Кочо. Официальная преемница главы отряда.
+                        Преемница Кочо Шинобу, её личная ученица.
                     </p>
                 </div>
 
@@ -182,63 +182,60 @@
                 <div class="glass-card rounded-xl p-6 border border-[#7862aa]/30 bg-[#7862aa]/5 space-y-2">
                     <h3 class="font-serif text-lg sm:text-xl text-accentPink font-medium">Цугуко Отряда</h3>
                     <p class="text-xs sm:text-sm text-lightCream/85 font-light leading-relaxed">
-                        Назначаемые ученики, получившие особый статус внутри подразделения. Обязанности совпадают с обязанностями Цугуко Канао.
+                        Ученики, чей потенциал заметила глава отряда. Обязанности и ответственность аналогичны Канао Цуюри.
                     </p>
                 </div>
 
             </div>
         </div>
 
-        <!-- Заголовок подразделений -->
+        <!-- Раздел: Основные подразделения -->
         <div class="text-center pt-6 space-y-2">
             <h2 class="text-2xl sm:text-3xl font-serif text-lightCream font-medium">Основные подразделения</h2>
             <div class="divider-line w-24 mx-auto opacity-60"></div>
         </div>
 
-        <!-- 3. Блоки подразделений друг под другом -->
+        <!-- 3. Карточки подразделений -->
         <div class="space-y-6">
             
-            <!-- Старший блок -->
+            <!-- Старший состав -->
             <div class="glass-card rounded-xl p-6 sm:p-8 space-y-3">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#7862aa]/20 pb-3">
-                    <h3 class="text-lg sm:text-xl font-serif text-accentPink font-medium">Хиното → Киното</h3>
+                    <h3 class="text-lg sm:text-xl font-serif text-accentPink font-medium">Хиното → Киное</h3>
                     <span class="text-[11px] uppercase tracking-widest text-lightCream/60">Старший состав</span>
                 </div>
-                <p class="text-sm font-medium text-lightCream/95">Наиболее опытные члены отряда.</p>
-                <p class="text-sm sm:text-base text-lightCream/85 font-light leading-relaxed">
-                    Работают непосредственно с руководством. Осуществляют наставничество младших бойцов и помогают принимать важные решения.
+                <p class="text-sm sm:text-base text-lightCream/90 font-light leading-relaxed">
+                    Приближены к руководству, обязаны быть примером для младших по рангу. Выполняют сложные миссии.
                 </p>
             </div>
 
-            <!-- Средний блок -->
+            <!-- Средний состав -->
             <div class="glass-card rounded-xl p-6 sm:p-8 space-y-3">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#7862aa]/20 pb-3">
                     <h3 class="text-lg sm:text-xl font-serif text-accentPink font-medium">Каное → Хиното</h3>
                     <span class="text-[11px] uppercase tracking-widest text-lightCream/60">Средний состав</span>
                 </div>
-                <p class="text-sm font-medium text-lightCream/95">Опытные бойцы отряда.</p>
-                <p class="text-sm sm:text-base text-lightCream/85 font-light leading-relaxed">
-                    Выполняют сложные миссии, поддерживают младший состав и являются основной боевой силой подразделения.
+                <p class="text-sm sm:text-base text-lightCream/90 font-light leading-relaxed">
+                    Опытные бойцы, выполняют миссии, наставляют младший состав.
                 </p>
             </div>
 
-            <!-- Младший блок -->
+            <!-- Младший состав -->
             <div class="glass-card rounded-xl p-6 sm:p-8 space-y-3">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#7862aa]/20 pb-3">
                     <h3 class="text-lg sm:text-xl font-serif text-accentPink font-medium">Мидзуното → Каное</h3>
                     <span class="text-[11px] uppercase tracking-widest text-lightCream/60">Младший состав</span>
                 </div>
-                <p class="text-sm font-medium text-lightCream/95">Бойцы, проходящие активное развитие.</p>
-                <p class="text-sm sm:text-base text-lightCream/85 font-light leading-relaxed">
-                    Участвуют в миссиях, совершенствуют дыхание и получают наставления.
+                <p class="text-sm sm:text-base text-lightCream/90 font-light leading-relaxed">
+                    Ученики в начале своего пути, ещё всё впереди.
                 </p>
             </div>
 
         </div>
 
-        <!-- 4. Нижняя секция: полная система рангов -->
+        <!-- 4. Нижняя секция: система рангов -->
         <div class="pt-8 border-t border-[#7862aa]/25 text-center space-y-4">
-            <h3 class="text-lg sm:text-xl font-serif text-accentPink tracking-wider">Полная система рангов</h3>
+            <h3 class="text-lg sm:text-xl font-serif text-accentPink tracking-wider">Система рангов</h3>
             <p class="text-xs sm:text-sm text-lightCream/80 font-mono tracking-wider max-w-3xl mx-auto leading-relaxed">
                 Мидзуното → Мидзуноэ → Каното → Каноэ → Цучиното → Цучиноэ → Хиното → Хиноэ → Киното → Киноэ
             </p>
